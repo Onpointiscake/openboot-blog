@@ -56,9 +56,9 @@ export default function HomeList() {
             >
               
               <List className="tags">
-              {article.tags.map((item, i) => (
-                  <Tag m="2" className="tag">
-                  <TagLabel className="tag-title">{item}</TagLabel>
+              {article.tags.map((tag, index) => (
+                  <Tag m="2" key={index} className="tag">
+                  <TagLabel className="tag-title">{tag}</TagLabel>
                 </Tag>
               ))}
               </List>

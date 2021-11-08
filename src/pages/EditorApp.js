@@ -30,15 +30,23 @@ import {
 
 export default function EditorApp() {
   const [markdown, setMarkdown] = useState("Heading");
-
   const navigate = useNavigate();
-  // Post api calls here
+
   function createArticle(event) {
     event.preventDefault()
-   
-    console.log("La form funciona")
-    // Cambiar esto a que vaya a la página de ReadArticle/:id 
-    // en vez de a Home
+    /**
+        const idArticulo;
+        axios.post('/api/articulo', {
+            titulo: tituloArticle,
+            contenido: contenidoArticle
+        }).then(response => idArticulo = response )
+            .catch(error => console.log(error))
+         */
+
+        // Hacer petición Post para que el back-end devuelva el 
+        // id del nuevo artículo creado e insertarlo en :id_article
+
+    // Una vez que el backend lo haya creado:
     navigate('/articulo/:id_articulo')
 }
 
@@ -80,36 +88,8 @@ export default function EditorApp() {
   };
 
   return (
-    <div>
-    <form onSubmit={createArticle}
-    className='createpost__form'>
-    <h1>Write a Story</h1>
-    <input 
-    type="text"
-    name="tituloarticulo"
-    placeholder="Enter Title" 
-    required
-        />
-    <br />
-    <br />
-    <textarea 
-    type="text"
-    name="contenidoarticulo"
-    placeholder="Write a Story" 
-    required></textarea>
-    <br />
-    <br />
-    <button 
-        
-    >Save Post</button>
-</form>
-
-    <Link to="/"> <button>Voler a Home</button> </Link>
-</div>
-/*  No se hacer funcionar el onSubmit con el framework chakra/ui */
-    /* 
-    <React.Fragment >
-      <FormControl onSubmit={createArticle} colorScheme="brand" id="markdown__editor__post">
+<React.Fragment>
+      <form onSubmit={createArticle} colorScheme="brand" id="markdown__editor__post">
         <Editable
           colorScheme="brand"
           textAlign="center"
@@ -154,9 +134,8 @@ export default function EditorApp() {
           </TabPanels>
         </Tabs>
         <Button type="submit" colorScheme="brand">New Post</Button>
-      </FormControl>
+      </form>
     </React.Fragment>
-    */ 
     
   );
 }
