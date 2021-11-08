@@ -2,6 +2,8 @@ import React from "react";
 import { Heading, Container, Button, Stack } from "@chakra-ui/react";
 import HomeList from "../components/HomeList";
 import Login from "./Login";
+import {Link} from 'react-router-dom'
+
 export default function StartPage() {
   return (
     <React.Fragment>
@@ -14,12 +16,16 @@ export default function StartPage() {
             ...start writing something
           </Heading>{" "}
           <Stack mt="20px" align="left" direction="row" spacing={5}>
-            <Button to="./EditorApp.js" variant="outline" size="lg">
-              New Post
-            </Button>
-            <Button to="./Login.js" variant="outline" size="lg">
-              Login
-            </Button>
+            <Link to="/editorapp">
+              <Button to="./EditorApp.js" variant="outline" size="lg">
+                New Post
+              </Button>
+            </Link>
+            <Link to="/login">
+              <Button to="./Login.js" variant="outline" size="lg">
+                Login
+              </Button>
+            </Link>
           </Stack>
         </Container>{" "}
         <Container maxW="container.xl">
