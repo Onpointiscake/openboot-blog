@@ -1,17 +1,13 @@
-import { Button, useColorMode } from "@chakra-ui/react"
-
-import EditorApp from './pages/EditorApp';
-import './styles/App.css';
+import StartPage from "./pages/StartPage";
+import "./styles/App.css";
+import NavBar from "./components/NavBar";
 
 function App() {
-  const { colorMode, toggleColorMode } = useColorMode()
-
   return (
     <div className="App">
-            <Button onClick={toggleColorMode}>
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
-<EditorApp/>
+      <StartPage />
+
+      <NavBar />
     </div>
   );
 }
