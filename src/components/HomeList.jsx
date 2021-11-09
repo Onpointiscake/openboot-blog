@@ -8,7 +8,6 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-// Sample card from Airbnb
 
 import Article from "./Article";
 
