@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import "../styles/EditorApp.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import "@pathofdev/react-tag-input/build/index.css";
+
+import {useNavigate} from 'react-router-dom';
 
 import {
   FormControl,
@@ -27,6 +30,25 @@ import {
 
 export default function EditorApp() {
   const [markdown, setMarkdown] = useState("Heading");
+  const navigate = useNavigate();
+
+  function createArticle(event) {
+    event.preventDefault()
+    /**
+        const idArticulo;
+        axios.post('/api/articulo', {
+            titulo: tituloArticle,
+            contenido: contenidoArticle
+        }).then(response => idArticulo = response )
+            .catch(error => console.log(error))
+         */
+
+        // Hacer petición Post para que el back-end devuelva el 
+        // id del nuevo artículo creado e insertarlo en :id_article
+
+    // Una vez que el backend lo haya creado:
+    navigate('/articulo/:id_articulo')
+}
 
   const TagInput = ({ tags }) => {
     const [tagData, setTagData] = React.useState(tags);
@@ -66,8 +88,8 @@ export default function EditorApp() {
   };
 
   return (
-    <React.Fragment>
-      <FormControl colorScheme="brand" id="markdown__editor__post">
+<React.Fragment>
+      <form onSubmit={createArticle} colorScheme="brand" id="markdown__editor__post">
         <Editable
           colorScheme="brand"
           textAlign="center"
@@ -111,8 +133,9 @@ export default function EditorApp() {
             </TabPanel>
           </TabPanels>
         </Tabs>
-        <Button colorScheme="brand">New Post</Button>
-      </FormControl>
+        <Button type="submit" colorScheme="brand">New Post</Button>
+      </form>
     </React.Fragment>
+    
   );
 }
