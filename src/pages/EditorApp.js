@@ -64,7 +64,7 @@ export default function EditorApp() {
       <div className="tag-input">
         <List className="tags">
           {tagData.map((tag, index) => (
-            <Tag key={index} className="tag">
+            <Tag key={index} className="tag" ml="10px" mr="10px" mb="10px">
               <TagLabel className="tag-title">{tag}</TagLabel>
               <TagCloseButton
                 className="tag-close-icon"
@@ -88,8 +88,10 @@ export default function EditorApp() {
 
   return (
 <React.Fragment>
+  <Container mt="5%">
       <form onSubmit={createArticle} colorScheme="brand" id="markdown__editor__post">
         <Editable
+          m="5%"
           colorScheme="brand"
           textAlign="center"
           defaultValue="Amazing title here! ⚡️"
@@ -99,6 +101,7 @@ export default function EditorApp() {
           <EditableInput colorScheme="brand" />
         </Editable>
         <Select
+        m="2%"
           colorScheme="brand"
           isRequired={true}
           placeholder="Select Author"
@@ -108,7 +111,10 @@ export default function EditorApp() {
           <option>Josema</option>
           <option>Clemen</option>
         </Select>
-        <Text>Press enter to create a tag.</Text>
+        <Text 
+        fontSize="xl"
+        m="2%"
+        mt="5%">Press enter to create a tag.</Text>
 
         <Container className="container_tag"></Container>
         <TagInput tags={["Nodejs", "MongoDB"]} />
@@ -134,6 +140,8 @@ export default function EditorApp() {
         </Tabs>
         <Button type="submit" colorScheme="brand">New Post</Button>
       </form>
+      </Container>
+
     </React.Fragment>
     
   );
