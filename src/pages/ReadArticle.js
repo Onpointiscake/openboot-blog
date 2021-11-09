@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from 'react'
+
 import {Link }  from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
+import { useParams } from "react-router-dom";
+
 import { Input, Box , IconButton} from "@chakra-ui/react";
 import { EditIcon, CloseIcon, CheckIcon } from '@chakra-ui/icons'
 
 
 export default function ReadArticle() {
     const navigate = useNavigate();
+    const { id_articulo } = useParams();
+
     const [isContentInEditMode, setContentStatus] = useState(false) 
     const [isTitleInEditMode, setTitleStatus] = useState(false)
     const [bodyArticle, setBodyArticle] = useState("El contenidooo")
@@ -24,9 +29,7 @@ export default function ReadArticle() {
             // Go back to Index page:
             navigate('/')
 
-        } else {
-            console.log('anulada operacion')
-        }
+        } else { console.log('anulada operacion') }
 
     }
     // Edit feature Functions:
@@ -86,7 +89,7 @@ export default function ReadArticle() {
 
     return (
         <div>
-
+            <h2>Estás viendo el artículo número {id_articulo}</h2>
             <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden">
                 {isTitleInEditMode ? renderEditTitleView() : renderDefaultTitleView() }  
                 {isContentInEditMode ? renderEditContentView() : renderDefaultContentView()}
