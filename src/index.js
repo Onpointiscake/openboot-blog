@@ -13,12 +13,12 @@ import {
 const customTheme = extendTheme(
   {
     colors: {
-      brand: baseTheme.colors.yellow,
+      brand: baseTheme.colors.orange,
     },
     components: {
       Alert: {
         defaultProps: {
-          colorScheme: "yellow",
+          colorScheme: "orange",
         },
       },
     },

@@ -1,11 +1,15 @@
 import React from 'react'
 import {Link }  from "react-router-dom";
 import { Search2Icon } from '@chakra-ui/icons'
+import { Button } from '@chakra-ui/button';
 
 export default function Article(props) {
     return (
-        <div>                            {/* Cambiar el color de la lupa al del tema ?¿ No se hacerlo */}
-            <Link to={`/articulo/${props.id}`}>Leer Más <Search2Icon w={6} h={6} color="green.500" /> </Link>
+        <div>                       
+            <Link to={`/articulo/${props.id}`}> <Button m="7px" size="sm" leftIcon={<Search2Icon />} variant="outline"> 
+    See more
+  </Button></Link>
+            {/* <Link to={`/articulo/${props.id}`}>Leer Más <Search2Icon w={2} h={2} /> </Link> */}
         </div>
     )
 }

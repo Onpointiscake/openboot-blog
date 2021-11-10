@@ -16,27 +16,30 @@ export default function HomeList() {
     { id: 1, titulo: 'Este es el primer articulo', date: "08/11/2021", author: "Rocio", tags: ["ReactJS", "JavaScript", "CSS", "HTML5  "] },
     { id: 2, titulo: 'Este siguiente es el segundo', date: "08/11/2021", author: "Pepe", tags: ["Java", "Spring", "CSS", "HTML5  "] },
     { id: 3, titulo: 'Otro más por aquí', date: "08/11/2021", author: "Ana", tags: ["CSS", "c++", "Swift", "HTML5  "] },
+    { id: 4, titulo: 'Este el cuarto y ultimo post', date:"08/11/2021", author: "David", tags: ["Python", "Django", "CSS", "HTML5  "] },
     { id: 4, titulo: 'Este el cuarto y ultimo post', date:"08/11/2021", author: "David", tags: ["Python", "Django", "CSS", "HTML5  "] }
+
   ]
 
   return (
     <div>
-      <SimpleGrid mt="5%" mb="5%" columns={3} spacing={5}>
+      <SimpleGrid mt="5%" mb="5%" columns={{lg:"3",md:"2", sm:"1"}} spacing={2}>
     {properties.map((article)=> (
-      <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden">
+      <Box maxW="lg" borderWidth="2px" borderRadius="lg" >
          <Box p="2">
         <Box
-            mt="1"
+            m="2"
             fontWeight="semibold"
-            fontSize="xl"
+            fontSize="2xl"
             lineHeight="tight"
             isTruncated
           >
             {article.titulo}
           </Box>
           <Article key={article.id} id={article.id} titulo={article.titulo} />
-          <Box fontSize="xl">{article.date}</Box>
+          <Box fontSize="md">{article.date}</Box>
           <Box>
+            
             <Badge
               m="3"
               fontSize="xl"
