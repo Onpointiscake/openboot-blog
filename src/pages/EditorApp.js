@@ -45,7 +45,7 @@ export default function EditorApp() {
         // Hacer petición Post para que el back-end devuelva el 
         // id del nuevo artículo creado e insertarlo en :id_article
 
-    // Una vez que el backend lo haya creado:
+    // Una vez que el backend lo haya creado, cambiar :id_articulo por id actual
     navigate('/articulo/:id_articulo')
 }
 
@@ -60,6 +60,7 @@ export default function EditorApp() {
         event.target.value = "";
       }
     };
+    console.log(tagData)
     return (
       <div className="tag-input">
         <List className="tags">
@@ -77,6 +78,7 @@ export default function EditorApp() {
         </List>
         <Input
           type="text"
+          onKeyPress={(event) => event.key === 'Enter' && event.preventDefault()}
           onKeyUp={(event) =>
             event.key === "Enter" ? addTagData(event) : null
           }
