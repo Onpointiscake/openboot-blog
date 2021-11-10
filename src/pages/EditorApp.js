@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+//import {Link} from 'react-router-dom'
 import "../styles/EditorApp.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import "@pathofdev/react-tag-input/build/index.css";
@@ -29,64 +29,19 @@ import {
 
 export default function EditorApp() {
   const [markdown, setMarkdown] = useState("Heading");
+  const [tags, setTags] = useState("")
   const navigate = useNavigate();
 
   function createArticle(event) {
     event.preventDefault()
-    /**
-        const idArticulo;
-        axios.post('/api/articulo', {
-            titulo: tituloArticle,
-            contenido: contenidoArticle
-        }).then(response => idArticulo = response )
-            .catch(error => console.log(error))
-         */
 
-        // Hacer petición Post para que el back-end devuelva el 
-        // id del nuevo artículo creado e insertarlo en :id_article
+    const finalTags = tags.split(" ")
+    console.log(finalTags)
 
     // Una vez que el backend lo haya creado, cambiar :id_articulo por id actual
     navigate('/articulo/:id_articulo')
-}
-
-  const TagInput = ({ tags }) => {
-    const [tagData, setTagData] = React.useState(tags);
-    const removeTagData = (indexToRemove) => {
-      setTagData([...tagData.filter((_, index) => index !== indexToRemove)]);
-    };
-    const addTagData = (event) => {
-      if (event.target.value !== "") {
-        setTagData([...tagData, event.target.value]);
-        event.target.value = "";
-      }
-    };
-    console.log(tagData)
-    return (
-      <div className="tag-input">
-        <List className="tags">
-          {tagData.map((tag, index) => (
-            <Tag key={index} className="tag" ml="10px" mr="10px" mb="10px">
-              <TagLabel className="tag-title">{tag}</TagLabel>
-              <TagCloseButton
-                className="tag-close-icon"
-                onClick={() => removeTagData(index)}
-              >
-                x
-              </TagCloseButton>
-            </Tag>
-          ))}
-        </List>
-        <Input
-          type="text"
-          onKeyPress={(event) => event.key === 'Enter' && event.preventDefault()}
-          onKeyUp={(event) =>
-            event.key === "Enter" ? addTagData(event) : null
-          }
-          placeholder="Press enter to add a tag"
-        />
-      </div>
-    );
-  };
+  }
+  function getTags(event) { setTags(event) }
 
   return (
 <React.Fragment>
@@ -113,13 +68,15 @@ export default function EditorApp() {
           <option>Josema</option>
           <option>Clemen</option>
         </Select>
-        <Text 
-        fontSize="xl"
-        m="2%"
-        mt="5%">Press enter to create a tag.</Text>
+        <Text>Press enter to create a tag separated by commas</Text>
 
         <Container className="container_tag"></Container>
-        <TagInput tags={["Nodejs", "MongoDB"]} />
+
+        <Input 
+          placeholder="Ejemplo: JavaScript, Java, SQL, Cloud..." 
+          onChange={(e) => getTags(e.target.value)}
+        />
+
         <Tabs colorScheme="brand">
           <TabList colorScheme="brand">
             <Tab colorScheme="brand">Write here</Tab>
