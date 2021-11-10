@@ -1,75 +1,35 @@
-import {
-  Box,
-  List,
-  Tag,
-  TagLabel,
-  Badge,
-  Container,
-  SimpleGrid,
-} from "@chakra-ui/react";
-
 
 import Article from "./Article";
 
 export default function HomeList() {
   const properties = [
-    { id: 1, titulo: 'Este es el primer articulo', date: "08/11/2021", author: "Rocio", tags: ["ReactJS", "JavaScript", "CSS", "HTML5  "] },
-    { id: 2, titulo: 'Este siguiente es el segundo', date: "08/11/2021", author: "Pepe", tags: ["Java", "Spring", "CSS", "HTML5  "] },
-    { id: 3, titulo: 'Otro más por aquí', date: "08/11/2021", author: "Ana", tags: ["CSS", "c++", "Swift", "HTML5  "] },
-    { id: 4, titulo: 'Este el cuarto y ultimo post', date:"08/11/2021", author: "David", tags: ["Python", "Django", "CSS", "HTML5  "] },
-    { id: 4, titulo: 'Este el cuarto y ultimo post', date:"08/11/2021", author: "David", tags: ["Python", "Django", "CSS", "HTML5  "] }
+    { id: 1, titulo: 'Este es el primer articulo', fechaCreacion: "08/11/2021", autor: "Rocio", categoria: "ReactJS", rutaImagen:"https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/Que_debes_saber_antes_de_adoptar_un_gatito.jpg?itok=guFplHEU" },
+    { id: 2, titulo: 'Este siguiente es el segundo', fechaCreacion: "08/11/2021", autor: "Pepe", categoria: "Java", rutaImagen:"https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/Que_debes_saber_antes_de_adoptar_un_gatito.jpg?itok=guFplHEU"  },
+    { id: 3, titulo: 'Otro más por aquí', fechaCreacion: "08/11/2021", autor: "Ana", categoria: "CSS", rutaImagen:"https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/Que_debes_saber_antes_de_adoptar_un_gatito.jpg?itok=guFplHEU" },
+    { id: 4, titulo: 'Este el cuarto y ultimo post', fechaCreacion:"08/11/2021", autor: "David", categoria: "HTML & CSS", rutaImagen:"https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/Que_debes_saber_antes_de_adoptar_un_gatito.jpg?itok=guFplHEU"  },
+    { id: 4, titulo: 'Este el cuarto y ultimo post', fechaCreacion:"08/11/2021", autor: "David", categoria: "Spring", rutaImagen:"https://www.purina-latam.com/sites/g/files/auxxlc391/files/styles/social_share_large/public/Que_debes_saber_antes_de_adoptar_un_gatito.jpg?itok=guFplHEU"  }
 
   ]
 
   return (
-    <div>
-      <SimpleGrid mt="5%" mb="5%" columns={{lg:"3",md:"2", sm:"1"}} spacing={2}>
+    <div className="container_article">
     {properties.map((article)=> (
-      <Box maxW="lg" borderWidth="2px" borderRadius="lg" >
-         <Box p="2">
-        <Box
-            m="2"
-            fontWeight="semibold"
-            fontSize="2xl"
-            lineHeight="tight"
-            isTruncated
-          >
+      <div maxW="lg" borderWidth="2px" borderRadius="lg" >
+        <img scr={article.rutaImagen} alt=""/>
+         <h1 className="article_title">
             {article.titulo}
-          </Box>
-          <Article key={article.id} id={article.id} titulo={article.titulo} />
-          <Box fontSize="md">{article.date}</Box>
-          <Box>
+          </h1>
+          <Article key={article.id} id={article.id} titulo={article.titulo} imagen={article.rutaImagen}/>
+          <h3 className="article_fechaCreacion">{article.fechaCreacion}</h3>
             
-            <Badge
-              m="3"
-              fontSize="xl"
-              borderRadius="lg"
-              px="3"
-              colorScheme="gray"
-            >
-              {article.author}
-            </Badge>
-            <Box
-              color="gray.500"
-              fontWeight="semibold"
-              letterSpacing="wide"
-              fontSize="xs"
-              textTransform="uppercase"
-            >
+          <h3 className="article_autor">
+            {article.autor}
+          </h3>
               
-              <List className="tags">
-              {article.tags.map((tag, index) => (
-                  <Tag m="2" key={index} className="tag">
-                  <TagLabel className="tag-title">{tag}</TagLabel>
-                </Tag>
-              ))}
-              </List>
-            </Box>
-          </Box>
-        </Box>
-      </Box>
+
+          </div>
+
     ))}
-    </SimpleGrid>
 </div>
   );
 }

@@ -4,104 +4,95 @@ import "../styles/EditorApp.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import "@pathofdev/react-tag-input/build/index.css";
 
-import {useNavigate} from 'react-router-dom';
-
-import {
-  Editable,
-  EditableInput,
-  EditablePreview,
-  Select,
-  Tab,
-  List,
-  Tag,
-  TagLabel,
-  TagCloseButton,
-  Text,
-  Input,
-  Tabs,
-  Container,
-  TabList,
-  TabPanels,
-  TabPanel,
-  Textarea,
-  Button,
-} from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export default function EditorApp() {
   const [markdown, setMarkdown] = useState("Heading");
-  const [tags, setTags] = useState("")
   const navigate = useNavigate();
 
   function createArticle(event) {
-    event.preventDefault()
+    event.preventDefault();
 
-    const finalTags = tags.split(" ")
-    console.log(finalTags)
 
     // Una vez que el backend lo haya creado, cambiar :id_articulo por id actual
-    navigate('/articulo/:id_articulo')
+    navigate("/articulo/:id_articulo");
   }
-  function getTags(event) { setTags(event) }
+
 
   return (
-<React.Fragment>
-  <Container mt="5%">
-      <form onSubmit={createArticle} colorScheme="brand" id="markdown__editor__post">
-        <Editable
-          m="5%"
+    <React.Fragment>
+        <form
+          onSubmit={createArticle}
           colorScheme="brand"
-          textAlign="center"
-          defaultValue="Amazing title here! ⚡️"
-          fontSize="3xl"
+          id="markdown__editor__post"
         >
-          <EditablePreview colorScheme="brand" />
-          <EditableInput colorScheme="brand" />
-        </Editable>
-        <Select
-        m="2%"
-          colorScheme="brand"
-          isRequired={true}
-          placeholder="Select Author"
-        >
-          <option>Ana</option>
-          <option>Javier</option>
-          <option>Josema</option>
-          <option>Clemen</option>
-        </Select>
-        <Text>Press enter to create a tag separated by commas</Text>
+          <input
+            placeholder="Amazing title here! ⚡️"
+            isRequired={true}
+            type="text"
+            className="editor_title"
+          />
+                    <h3 className="editor_subtitle">
+            Upload your cover photo
+          </h3>
+            <input type="file" id="img" name="img" accept="image/*" />
 
-        <Container className="container_tag"></Container>
+          <select
+            isRequired={true}
+            placeholder="Select Author"
+            className="editor_author"
+          >
+            <option>Ana</option>
+            <option>Javier</option>
+            <option>Josema</option>
+            <option>Clemen</option>
+          </select>
 
-        <Input 
-          placeholder="Ejemplo: JavaScript, Java, SQL, Cloud..." 
-          onChange={(e) => getTags(e.target.value)}
-        />
+          <h3 className="editor_subtitle">
+            Select your category
+          </h3>
 
-        <Tabs colorScheme="brand">
-          <TabList colorScheme="brand">
-            <Tab colorScheme="brand">Write here</Tab>
-            <Tab colorScheme="brand">Magic Here</Tab>
-          </TabList>
+          <div id="radio_buttons_group">
+            <input type="radio" id="category_java"
+              value="java" />
+            <label for="category_java">Java</label>
 
-          <TabPanels colorScheme="brand">
-            <TabPanel colorScheme="brand">
-              <Textarea
-                resize={"none"}
-                value={markdown}
-                onChange={(e) => setMarkdown(e.target.value)}
-                colorScheme="brand"
-              />
-            </TabPanel>
-            <TabPanel colorScheme="brand">
-              <MarkdownPreview source={markdown} />
-            </TabPanel>
-          </TabPanels>
-        </Tabs>
-        <Button type="submit" colorScheme="brand">New Post</Button>
-      </form>
-      </Container>
+            <input type="radio" id="category_spring"
+              value="spring" />
+            <label for="category_spring">Spring</label>
 
+            <input type="radio" id="category_htmlcss"
+              value="htmlcss" />
+            <label for="category_htmlcss">HTML & CSS</label>
+
+            <input type="radio" id="category_javascript"
+              value="javascript" />
+            <label for="category_javascript">JavaScript</label>
+
+            <input type="radio" id="category_react"
+              value="react" />
+            <label for="category_react">React JS</label>
+
+
+          </div>
+          <h3 className="editor_subtitle"> Write here</h3>
+
+          <input
+            isRequired={true}
+            type="textarea"
+            resize={"none"}
+            value={markdown}
+            onChange={(e) => setMarkdown(e.target.value)}
+          />
+
+          <span className="container">
+            <MarkdownPreview source={markdown} />
+          </span>
+
+          <button type="submit" colorScheme="brand">
+            New Post
+          </button>
+        </form>
     </React.Fragment>
-    
   );
 }

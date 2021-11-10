@@ -3,8 +3,6 @@ import React, {useState, useEffect} from 'react'
 import {Link }  from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
 import { useParams } from "react-router-dom";
-
-import { Input, Box , IconButton} from "@chakra-ui/react";
 import { EditIcon, CloseIcon, CheckIcon } from '@chakra-ui/icons'
 
 
@@ -41,7 +39,7 @@ export default function ReadArticle() {
     function renderEditContentView (){
         return (
             <React.Fragment>
-                <Input
+                <input
                     onChange={e => setBodyArticle(e.target.value)}
                     type="text"
                     defaultValue={bodyArticle}
@@ -57,7 +55,7 @@ export default function ReadArticle() {
     function renderEditTitleView (){
         return (
             <React.Fragment>
-                <Input
+                <input
                     onChange={e => setTitleArticle(e.target.value)}
                     type="text"
                     defaultValue={titleArticle}
@@ -90,7 +88,7 @@ export default function ReadArticle() {
     return (
         <div>
             <h2>Estás viendo el artículo número {id_articulo}</h2>
-            <Box maxW="lg" borderWidth="1px" borderRadius="lg" overflow="hidden">
+            <div >
                 {isTitleInEditMode ? renderEditTitleView() : renderDefaultTitleView() }  
                 {isContentInEditMode ? renderEditContentView() : renderDefaultContentView()}
     
@@ -107,7 +105,7 @@ export default function ReadArticle() {
 
                 <hr />
                 <Link to="/"> <button>Go HOME</button> </Link>
-            </Box>
+                </div>
             
         </div>
     )
