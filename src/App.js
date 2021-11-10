@@ -15,8 +15,9 @@ function App() {
     <Route path="/editorapp" element={ <EditorApp /> } />
     <Route path="/login" element={ <Login /> } />
     <Route path="/articulo/:id_articulo" element={ <ReadArticle /> } />
-     {/**  <NavBar /> */}
       </Routes>
+      <NavBar />
+
     </div>
     </BrowserRouter>
   );

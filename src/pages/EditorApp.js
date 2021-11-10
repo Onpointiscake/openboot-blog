@@ -43,11 +43,12 @@ export default function EditorApp() {
   }
   function getTags(event) { setTags(event) }
 
-
   return (
 <React.Fragment>
+  <Container mt="5%">
       <form onSubmit={createArticle} colorScheme="brand" id="markdown__editor__post">
         <Editable
+          m="5%"
           colorScheme="brand"
           textAlign="center"
           defaultValue="Amazing title here! ⚡️"
@@ -57,6 +58,7 @@ export default function EditorApp() {
           <EditableInput colorScheme="brand" />
         </Editable>
         <Select
+        m="2%"
           colorScheme="brand"
           isRequired={true}
           placeholder="Select Author"
@@ -97,6 +99,8 @@ export default function EditorApp() {
         </Tabs>
         <Button type="submit" colorScheme="brand">New Post</Button>
       </form>
+      </Container>
+
     </React.Fragment>
     
   );

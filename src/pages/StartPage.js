@@ -1,7 +1,6 @@
 import React from "react";
 import { Heading, Container, Button, Stack } from "@chakra-ui/react";
 import HomeList from "../components/HomeList";
-import Login from "./Login";
 import {Link} from 'react-router-dom'
 
 export default function StartPage() {
@@ -31,6 +30,7 @@ export default function StartPage() {
         <Container maxW="container.xl">
           <HomeList />
         </Container>
+       
       </Container>
     </React.Fragment>
   );

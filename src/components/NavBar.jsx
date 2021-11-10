@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useColorMode, Container, Switch } from "@chakra-ui/react";
 
 export default function NavBar() {
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { toggleColorMode } = useColorMode();
 
   return (
     <React.Fragment>
@@ -11,7 +11,8 @@ export default function NavBar() {
           onChange={toggleColorMode}
           size="lg"
           colorScheme="orange"
-          mr="15px"
+          mr="20px"
+          m="20px"
         />
         <Link to="/" fontSize="xl">
           Home
