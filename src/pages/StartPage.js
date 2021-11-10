@@ -1,6 +1,7 @@
 import React from "react";
 import HomeList from "../components/HomeList";
 import {Link} from 'react-router-dom'
+//El link de ver mas lleva a la pagina de editar, no a la vista del articulo
 
 export default function StartPage() {
   return (

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 //import {Link} from 'react-router-dom'
-import "../styles/EditorApp.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import "@pathofdev/react-tag-input/build/index.css";
 
