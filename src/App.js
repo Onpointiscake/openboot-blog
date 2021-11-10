@@ -2,11 +2,14 @@ import StartPage from "./pages/StartPage";
 import EditorApp from "./pages/EditorApp"
 import ReadArticle from "./pages/ReadArticle"
 import Login from "./pages/Login"
-import "./styles/App.css";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import React, { useEffect } from 'react';
+
 
 function App() {
+
+ 
   return (
     <BrowserRouter>
     <div className="App">
