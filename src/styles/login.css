@@ -1,0 +1,139 @@
+.container_sign_in {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  min-height: 85vh;
+}
+
+.image_container {
+  height: 50%;
+}
+.image_container svg {
+  width: 28em;
+}
+
+.form_container {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.3em;
+  border-radius: 2em;
+  background-color: var(--subtext-color);
+}
+
+.heading_login {
+  font-weight: 600;
+  font-size: 3em;
+  color: var(--background-color);
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  background: transparent;
+  border: none;
+}
+
+.email_input {
+  margin: 0.5em;
+  padding: 1em;
+  width: 25em;
+  border-radius: 0.75em;
+  border: none;
+  background-color: var(--background-color);
+  color: var(--subtext-color);
+  font-size: 1em;
+  text-align: left;
+}
+
+.login_form input::placeholder {
+  color: var(--text-color);
+  text-align: left;
+}
+
+.password_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  width: 25em;
+  border-radius: 0.75em;
+  border: none;
+  background-color: var(--background-color);
+  color: var(--subtext-color);
+  text-align: left;
+}
+
+.password_input {
+  font-size: 1em;
+  text-align: left;
+  color: var(--text-color);
+}
+.show_password {
+  background: transparent;
+  border: none;
+}
+
+.submit_login {
+  background-color: var(--background-color);
+  width: 7em;
+  border: none;
+  text-align: center;
+  align-self: center;
+  margin: 1em;
+  padding: 0.5em;
+  border-radius: 1em;
+  font-size: 1.2em;
+  color: var(--subtext-color);
+}
+.submit_login:hover {
+  background-color: var(--accent-color-mid);
+  color: var(--background-color);
+}
+
+@media screen and (max-width: 987px) {
+  .container_sign_in {
+    flex-direction: column;
+  }
+
+  .image_container {
+    margin: 0em;
+  }
+  .image_container svg {
+    width: 10em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .heading_login {
+    font-weight: 600;
+    font-size: 2em;
+  }
+  .container_sign_in {
+    flex-direction: column;
+  }
+  .form_container {
+    width: 80%;
+  }
+  .image_container {
+    margin: 0em;
+  }
+  .image_container svg {
+    width: 10em;
+  }
+  .password_input {
+    width: 7em;
+  }
+  .password_container {
+    width: 13em;
+  }
+
+  .email_input {
+    width: 13em;
+  }
+}

@@ -1,24 +1,18 @@
 import React from "react";
-import { useColorMode, Container, Switch } from "@chakra-ui/react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Toggle from "./toggle/Toggle";
+
+import "../styles/navbar.css";
 
 export default function NavBar() {
-  const { toggleColorMode } = useColorMode();
-
   return (
     <React.Fragment>
-      <Container>
-        <Switch
-          onChange={toggleColorMode}
-          size="lg"
-          colorScheme="orange"
-          mr="20px"
-          m="20px"
-        />
+      <div className="navbar_container">
         <Link to="/" fontSize="xl">
-          Home
+          <button className="home_button">Home</button>
         </Link>
-      </Container>
+        <Toggle />
+      </div>
     </React.Fragment>
   );
 }

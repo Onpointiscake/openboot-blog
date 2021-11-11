@@ -1,23 +1,10 @@
-import { useState } from "react";
-import {
-  Flex,
-  Heading,
-  Input,
-  Button,
-  InputGroup,
-  Stack,
-  InputLeftElement,
-  chakra,
-  Box,
-  Link,
-  FormControl,
-  FormHelperText,
-  InputRightElement,
-} from "@chakra-ui/react";
-import { FaUserAlt, FaLock } from "react-icons/fa";
+import { React, useState } from "react";
+import { ReactComponent as LoginImage } from "../assets/images/LoginImage.svg";
+import { ReactComponent as Thunder } from "../assets/icons/bolt-thunder-svgrepo-com.svg";
+import { ReactComponent as EyeClosed } from "../assets/icons/eye-closed.svg";
+import { ReactComponent as EyeOpen } from "../assets/icons/eye-open.svg";
 
-const CFaUserAlt = chakra(FaUserAlt);
-const CFaLock = chakra(FaLock);
+import "../styles/login.css";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,68 +12,39 @@ const Login = () => {
   const handleShowClick = () => setShowPassword(!showPassword);
 
   return (
-    <Flex
-      flexDirection="column"
-      width="100wh"
-      height="100vh"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Stack
-        flexDir="column"
-        mb="2"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Heading>Welcome</Heading>
-        <Box minW={{ base: "90%", md: "468px" }}>
-          <form>
-            <Stack spacing={4} p="1rem" boxShadow="md">
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<CFaUserAlt />}
-                  />
-                  <Input type="email" placeholder="email address" />
-                </InputGroup>
-              </FormControl>
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement
-                    pointerEvents="none"
-                    children={<CFaLock />}
-                  />
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                  />
-                  <InputRightElement width="4.5rem">
-                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                      {showPassword ? "Hide" : "Show"}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
-                <FormHelperText textAlign="right">
-                  <Link>forgot password?</Link>
-                </FormHelperText>
-              </FormControl>
-              <Button
-                borderRadius={0}
-                type="submit"
-                variant="solid"
-                width="full"
-              >
-                Login
-              </Button>
-            </Stack>
-          </form>
-        </Box>
-      </Stack>
-      <Box>
-        New to us? <Link href="#">Sign Up</Link>
-      </Box>
-    </Flex>
+    <div className="container_sign_in">
+      <div className="image_container">
+        <LoginImage width="100%" height="100%" />
+      </div>
+
+      <div className="form_container">
+        <h1 className="heading_login">
+          Welcome <Thunder width="40px" height="40px" />
+        </h1>
+        <form className="login_form">
+          <input className="email_input" type="email" placeholder="Email" />
+          <div className="password_container">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              className="password_input"
+            />{" "}
+            <button className="show_password" onClick={handleShowClick}>
+              {showPassword ? (
+                <EyeClosed width="20px" height="20px" />
+              ) : (
+                <EyeOpen width="20px" height="20px" />
+              )}
+            </button>
+          </div>
+          <div className="button_container">
+            <button className="submit_login" type="submit">
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 

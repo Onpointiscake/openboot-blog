@@ -1,37 +1,30 @@
 import React from "react";
-import { Heading, Container, Button, Stack } from "@chakra-ui/react";
 import HomeList from "../components/HomeList";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+
+import "../styles/startpage.css";
+
+//El link de ver mas lleva a la pagina de editar, no a la vista del articulo
 
 export default function StartPage() {
   return (
     <React.Fragment>
-      <Container maxW="container.xl" mt="5%">
-        <Container maxW="container.m">
-          <Heading fontSize="60px" align="left">
-            Hey! 👋
-          </Heading>
-          <Heading fontSize="40px" align="left">
-            ...start writing something
-          </Heading>{" "}
-          <Stack mt="20px" align="left" direction="row" spacing={5}>
-            <Link to="/editorapp">
-              <Button to="./EditorApp.js" variant="outline" size="lg">
-                New Post
-              </Button>
-            </Link>
-            <Link to="/login">
-              <Button to="./Login.js" variant="outline" size="lg">
-                Login
-              </Button>
-            </Link>
-          </Stack>
-        </Container>{" "}
-        <Container maxW="container.xl">
+      <div className="container_home">
+        <div className="container_heading_home">
+          <h1 className="title_home">Hey! 👋</h1>
+          <h2 className="subtitle_home">...start writing something</h2>
+          <Link to="/editorapp">
+            <button className="newpost_home" to="./EditorApp.js">
+              New Post
+            </button>
+          </Link>{" "}
+        </div>
+
+        <Link to="/login"></Link>
+        <div>
           <HomeList />
-        </Container>
-       
-      </Container>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

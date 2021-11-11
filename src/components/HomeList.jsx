@@ -1,3 +1,4 @@
+
 import {
   Box,
   Badge,
@@ -46,5 +47,27 @@ export default function HomeList() {
       </SimpleGrid>
   </div>
     );
-  
+   // No consigo que se vean las imagenes
+   // Lo comento provisionalmente para que funcione lo de arriba y luego ya refactorizas tu:
+  /*
+  return (
+    <div className="homelist_container">
+      {properties.map((article) => (
+        <div className="card_article_container">
+          <img className="article_image" scr={article.rutaImagen} alt="" />
+          <h1 className="article_title">{article.titulo}</h1>
+          <Article
+            key={article.id}
+            id={article.id}
+            titulo={article.titulo}
+            imagen={article.rutaImagen}
+          />
+          <h3 className="article_fechaCreacion">{article.fechaCreacion}</h3>
+
+          <h3 className="article_autor">{article.autor}</h3>
+        </div>
+      ))}
+    </div>
+  );
+  */
 }
