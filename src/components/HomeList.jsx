@@ -53,7 +53,7 @@ export default function HomeList() {
     <div className="homelist_container">
       {properties.map((article) => (
         <div className="card_article_container">
-          <img scr={article.rutaImagen} alt="" />
+          <img className="article_image" scr={article.rutaImagen} alt="" />
           <h1 className="article_title">{article.titulo}</h1>
           <Article
             key={article.id}

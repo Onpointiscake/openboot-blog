@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 5%;
 }
 .title_home {
   font-size: 5em;
@@ -30,4 +31,29 @@
   background-color: var(--subtext-color);
   border-radius: 1em;
   padding: 2%;
+}
+
+.article_title {
+  font-weight: 600;
+  font-size: 1.5em;
+  color: var(--background-color);
+}
+
+@media screen and (max-width: 987px) {
+  .homelist_container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .homelist_container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .homelist_container {
+    display: flex;
+    flex-direction: column;
+  }
 }
