@@ -4,8 +4,10 @@ import {Link }  from "react-router-dom";
 import {useNavigate} from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
-import { Input, Box , IconButton} from "@chakra-ui/react";
+import { Input, Box } from "@chakra-ui/react";
 import { EditIcon, CloseIcon, CheckIcon } from '@chakra-ui/icons'
+
+import axios from 'axios';
 
 
 export default function ReadArticle() {
@@ -17,15 +19,27 @@ export default function ReadArticle() {
     const [bodyArticle, setBodyArticle] = useState("El contenidooo")
     const [titleArticle, setTitleArticle] = useState("El tituloo")
 
+    const [article, setArticle] = useState([]);
+    useEffect(() => getArticle(), []);
+  
+    const getArticle = async () => {
+      const articleResponse = await fetch("https://notion-sinsecurity.herokuapp.com/api/articulos/mostrar/" + parseInt(id_articulo));
+      const data = await articleResponse.json();
+      setArticle(data);
+
+      setTitleArticle(data.titulo)
+      setBodyArticle(data.contenido)
+    };
+
     function deleteArticle() {
 
-        if (window.confirm('¿Estás seguro que quieres borrar esta Lista?')) {
-            /*
-            axios.delete(`/api/article/${id_lista}`)
-                .then(() => console.log('lista eliminada'))
+        if (window.confirm('¿Estás seguro que quieres borrar este artículo?')) {
+            
+            axios.delete("https://notion-sinsecurity.herokuapp.com/api/articulos/eliminar/" + parseInt(id_articulo))
+                .then(() => console.log('articulo eliminado'))
                 .catch((err) => console.log(err))
-            */
-            alert('El artículo ha sido borrado. Ahora podrás crear una nueva')
+            
+            alert('El artículo ha sido borrado. Ahora podrás crear uno nuevo')
             // Go back to Index page:
             navigate('/')
 
@@ -35,8 +49,27 @@ export default function ReadArticle() {
     // Edit feature Functions:
     function changeEditTitleMode (){ setTitleStatus(isTitleInEditMode => !isTitleInEditMode) }
     function changeEditContentMode () { setContentStatus(isContentInEditMode => !isContentInEditMode) }
-    function updateContentValue () { setContentStatus(false) }
-    function updateTitleValue () { setTitleStatus(false) }
+
+    function updateContentValue () { 
+        setContentStatus(false) 
+   
+        axios.put('https://notion-sinsecurity.herokuapp.com/api/articulos/modificar', { 
+            id: parseInt(id_articulo),
+            contenido: bodyArticle
+        }).then(() => console.log("Se ha editado correctamente el titulo"))
+          .catch(error => console.error(error))
+
+    }
+    function updateTitleValue (e) { 
+        setTitleStatus(false) 
+        console.log(id_articulo, titleArticle)
+        axios.put('https://notion-sinsecurity.herokuapp.com/api/articulos/modificar', { 
+            id: id_articulo,
+            titulo: titleArticle
+        }).then(() => console.log("Se ha editado correctamente el titulo"))
+          .catch(error => console.error(error))
+
+    }
     
     function renderEditContentView (){
         return (

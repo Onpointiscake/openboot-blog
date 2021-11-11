@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, useColorMode, Container, Switch } from "@chakra-ui/react";
+import { useColorMode, Container, Switch } from "@chakra-ui/react";
+import { Link } from "react-router-dom"
 
 export default function NavBar() {
   const { toggleColorMode } = useColorMode();

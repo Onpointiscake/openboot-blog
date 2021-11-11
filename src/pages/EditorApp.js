@@ -6,16 +6,14 @@ import "@pathofdev/react-tag-input/build/index.css";
 
 import {useNavigate} from 'react-router-dom';
 
+import axios from "axios"
+
 import {
   Editable,
   EditableInput,
   EditablePreview,
   Select,
   Tab,
-  List,
-  Tag,
-  TagLabel,
-  TagCloseButton,
   Text,
   Input,
   Tabs,
