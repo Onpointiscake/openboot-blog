@@ -1,0 +1,33 @@
+.container_home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  min-height: 85vh;
+  padding-left: 2em;
+}
+
+.container_heading_home {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.title_home {
+  font-size: 5em;
+  font-weight: 500;
+}
+.subtitle_home {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.homelist_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.card_article_container {
+  margin: 2%;
+  background-color: var(--subtext-color);
+  border-radius: 1em;
+  padding: 2%;
+}

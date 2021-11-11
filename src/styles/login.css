@@ -3,19 +3,17 @@
   align-items: center;
   align-content: center;
   justify-content: center;
-  min-height: 90vh;
+  min-height: 85vh;
 }
 
 .image_container {
   height: 50%;
-  margin: 2%;
 }
 .image_container svg {
   width: 28em;
 }
 
 .form_container {
-  margin: 2%;
   height: 50%;
   display: flex;
   flex-direction: column;
