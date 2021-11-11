@@ -1,0 +1,21 @@
+.navbar_container {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.home_button {
+  padding: 0.4em;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  color: var(--background-color);
+  border-radius: 0.7em;
+  border: none;
+  font-size: 1em;
+  background-color: var(--text-color);
+}
+
+.home_button:hover {
+  background-color: var(--accent-color-light);
+}

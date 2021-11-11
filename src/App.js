@@ -4,8 +4,11 @@ import ReadArticle from "./pages/ReadArticle";
 import Login from "./pages/Login";
 import NavBar from "./components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { keepTheme } from "./components/toggle/themes";
+
+// CSS
+import "./styles/login.css";
 
 function App() {
   useEffect(() => {

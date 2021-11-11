@@ -57,7 +57,6 @@ function Toggle() {
       />
       <label htmlFor="toggle" className="toggle--label">
         <span className="toggle--label-background"></span>
-        dark mode toggle
       </label>
     </div>
   );

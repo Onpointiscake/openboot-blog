@@ -1,3 +1,79 @@
-.container_sign_in{
-    background-image: var(--bakground-gradient);
+.container_sign_in {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  min-height: 90vh;
+  padding: 2em;
+}
+
+.image_container {
+  margin: 2em;
+}
+.image_container svg {
+  width: 27em;
+}
+
+.form_container {
+  margin: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  border-radius: 2em;
+  background-color: var(--subtext-color);
+}
+
+.heading_login {
+  font-weight: 600;
+  font-size: 3em;
+  color: var(--background-color);
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input {
+  background: transparent;
+  border: none;
+}
+
+.email_input {
+  margin: 0.5em;
+  padding: 1em;
+  width: 25em;
+  border-radius: 0.75em;
+  border: none;
+  background-color: var(--background-color);
+  color: var(--background-color);
+  font-size: 1em;
+  text-align: left;
+}
+
+.login_form input::placeholder {
+  color: var(--text-color);
+  text-align: left;
+}
+
+.password_container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  width: 25em;
+  border-radius: 0.75em;
+  border: none;
+  background-color: var(--background-color);
+  color: var(--background-color);
+  text-align: left;
+}
+
+.password_input {
+  font-size: 1em;
+}
+
+.button_container button {
+  width: 50%;
 }
