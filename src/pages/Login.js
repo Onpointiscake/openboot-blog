@@ -1,6 +1,9 @@
 import { React, useState } from "react";
 import { ReactComponent as LoginImage } from "../assets/images/LoginImage.svg";
 import { ReactComponent as Thunder } from "../assets/icons/bolt-thunder-svgrepo-com.svg";
+import { ReactComponent as EyeClosed } from "../assets/icons/eye-closed.svg";
+import { ReactComponent as EyeOpen } from "../assets/icons/eye-open.svg";
+
 import "../styles/login.css";
 
 const Login = () => {
@@ -19,11 +22,7 @@ const Login = () => {
           Welcome <Thunder width="40px" height="40px" />
         </h1>
         <form className="login_form">
-          <input
-            className="email_input"
-            type="email"
-            placeholder="email address"
-          />
+          <input className="email_input" type="email" placeholder="Email" />
           <div className="password_container">
             <input
               type={showPassword ? "text" : "password"}
@@ -31,17 +30,19 @@ const Login = () => {
               className="password_input"
             />{" "}
             <button className="show_password" onClick={handleShowClick}>
-              {showPassword ? "Hide" : "Show"}
+              {showPassword ? (
+                <EyeClosed width="20px" height="20px" />
+              ) : (
+                <EyeOpen width="20px" height="20px" />
+              )}
             </button>
           </div>
           <div className="button_container">
-            <button>forgot password?</button>
-            <button type="submit">Login</button>
+            <button className="submit_login" type="submit">
+              Login
+            </button>
           </div>
         </form>
-        <div className="sing_up">
-          New to us?<button href="#">Sign Up</button>
-        </div>
       </div>
     </div>
   );

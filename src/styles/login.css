@@ -4,23 +4,24 @@
   align-content: center;
   justify-content: center;
   min-height: 90vh;
-  padding: 2em;
 }
 
 .image_container {
-  margin: 2em;
+  height: 50%;
+  margin: 2%;
 }
 .image_container svg {
-  width: 27em;
+  width: 28em;
 }
 
 .form_container {
-  margin: 2em;
+  margin: 2%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2em;
+  padding: 2.3em;
   border-radius: 2em;
   background-color: var(--subtext-color);
 }
@@ -48,7 +49,7 @@ input {
   border-radius: 0.75em;
   border: none;
   background-color: var(--background-color);
-  color: var(--background-color);
+  color: var(--subtext-color);
   font-size: 1em;
   text-align: left;
 }
@@ -66,14 +67,75 @@ input {
   border-radius: 0.75em;
   border: none;
   background-color: var(--background-color);
-  color: var(--background-color);
+  color: var(--subtext-color);
   text-align: left;
 }
 
 .password_input {
   font-size: 1em;
+  text-align: left;
+  color: var(--text-color);
+}
+.show_password {
+  background: transparent;
+  border: none;
 }
 
-.button_container button {
-  width: 50%;
+.submit_login {
+  background-color: var(--background-color);
+  width: 7em;
+  border: none;
+  text-align: center;
+  align-self: center;
+  margin: 1em;
+  padding: 0.5em;
+  border-radius: 1em;
+  font-size: 1.2em;
+  color: var(--subtext-color);
+}
+.submit_login:hover {
+  background-color: var(--accent-color-mid);
+  color: var(--background-color);
+}
+
+@media screen and (max-width: 987px) {
+  .container_sign_in {
+    flex-direction: column;
+  }
+
+  .image_container {
+    margin: 0em;
+  }
+  .image_container svg {
+    width: 10em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .heading_login {
+    font-weight: 600;
+    font-size: 2em;
+  }
+  .container_sign_in {
+    flex-direction: column;
+  }
+  .form_container {
+    width: 80%;
+  }
+  .image_container {
+    margin: 0em;
+  }
+  .image_container svg {
+    width: 10em;
+  }
+  .password_input {
+    width: 7em;
+  }
+  .password_container {
+    width: 13em;
+  }
+
+  .email_input {
+    width: 13em;
+  }
 }
